@@ -19,7 +19,6 @@ const checkwinner =()=>{
             alert("VINNER!")
             if(document.getElementById(id1).value==="X")alert("Player 1 wins")
             else if(document.getElementById(id1).value ==="O") alert("Player 2 wins")
-            clear()
             return true;
         }
     }
@@ -67,27 +66,33 @@ let turn=(number) =>{
 export const Game = () =>{
     return(
 
-      <Row style={{backgroundColor: "lightblue"}}>
+      <div style={{backgroundColor: "lightblue"}}>
           <button onClick={clear}>Clear</button>
           <input type={"text"} id={"test"}/>
+          <Row>
           <Col sm={4}></Col>
           <Col sm={1} style={{height: "100px", border: "solid"}} onClick={() => turn(1)}><input type={'text'} id={"r1"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} style={{ height: "100px", border: "solid"}} onClick={() => turn(2)}> <input type={'text'} id={"r2"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} style={{ height: "100px", border: "solid"}}  onClick={() => turn(3)}> <input type={'text'} id={"r3"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={5}></Col>
+          </Row>
+          <Row>
           <Col sm={4}></Col>
           <Col sm={1} style={{height: "100px", border: "solid"}} onClick={() => turn(4)}> <input type={'text'} id={"r4"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} style={{ height: "100px", border: "solid"}} onClick={() => turn(5)}> <input type={'text'} id={"r5"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} style={{height: "100px", border: "solid"}} onClick={()=> turn(6)}> <input type={'text'} id={"r6"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={5}></Col>
+          </Row>
+          <Row>
           <Col sm={4}></Col>
           <Col sm={1} style={{ height: "100px", border: "solid"}} onClick={() => turn(7)}><input type={'text'} id={"r7"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} style={{ height: "100px", border: "solid"}} onClick={() => turn(8)}><input type={'text'} id={"r8"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} style={{ height: "100px", border: "solid"}} onClick={()=> turn(9)}><input type={'text'} id={"r9"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/> </Col>
           <Col sm={5}></Col>
+          </Row>
           <Col sm={3}></Col>
           <Col sm={3}><button onClick={start}>Start game</button></Col>
           <Col sm={3}><button onClick={playbot}> Play vs bot</button> </Col>
-      </Row>
+      </div>
     );
 }
