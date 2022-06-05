@@ -16,19 +16,28 @@ const checkwinner =()=>{
        let id3 = "r"+winners[i][2]
 
         if( document.getElementById(id1).value !== "" && document.getElementById(id1).value === document.getElementById(id2).value && document.getElementById(id3).value === document.getElementById(id1).value){
-            alert("VINNER!")
-            if(document.getElementById(id1).value==="X")alert("Player 1 wins")
-            else if(document.getElementById(id1).value ==="O") alert("Player 2 wins")
+            if(document.getElementById(id1).value==="X") {
+                document.getElementById("resultat").innerHTML="Spiller 1 vinner"
+            }
+            else if(document.getElementById(id1).value ==="O") {
+                document.getElementById("resultat").innerHTML="Spiller 2 vinner"
+            }
+            gamerunning = false
             return true;
         }
     }
     return false;
 }
 let start=()=>{
+    clear()
     gamerunning=true;
 }
 let clear=()=>{
-   window.location.reload()
+    tur=true
+   for(let i = 1; i < 10; i++){
+       let id = "r" + i
+       document.getElementById(id).value=""
+   }
 }
 const botmove=()=>{
     while(true) {
@@ -69,7 +78,11 @@ export const Game = () =>{
       <div style={{}}>
           <button onClick={clear}>Clear</button>
           <Row>
-          <Col sm={4}></Col>
+          <Col sm={4}>
+              <div id={'resultat'}>
+
+              </div>
+          </Col>
           <Col sm={1} xs={4}  style={{height: "100px", border: "solid"}} onClick={() => turn(1)}><input type={'text'} id={"r1"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} xs={4} style={{ height: "100px", border: "solid"}} onClick={() => turn(2)}> <input type={'text'} id={"r2"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>
           <Col sm={1} xs={4} style={{ height: "100px", border: "solid"}}  onClick={() => turn(3)}> <input type={'text'} id={"r3"} style={{backgroundColor: "lightblue", height: "100%", width: "100%", border: "none"}} readOnly={true}/></Col>

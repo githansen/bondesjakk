@@ -7,7 +7,13 @@ function App() {
   return (
     <div className="App">
       <Container fluid>
+          <Row>
+              Topp
+          </Row>
          <Game/>
+          <Row>
+              Bunn
+          </Row>
       </Container>
     </div>
   );
